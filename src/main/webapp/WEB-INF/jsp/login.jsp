@@ -10,7 +10,7 @@
 		<nav class="nav" role="navigation">
 			<div class="container nav-elements">
 				<div class="branding">
-					<a href="#home"><img src="images/hpluslogo.svg"
+					<a href="/home"><img src="images/hpluslogo.svg"
 						alt="Logo - H Plus Sports"></a>
 				</div>
 				<!-- branding -->
