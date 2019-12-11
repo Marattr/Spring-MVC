@@ -9,18 +9,31 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
+@SessionAttributes("login")
 public class LoginController {
 
     @Autowired
     private UserRepository userRepository;
 
+    /*@ModelAttribute("login")
+    public Login getDefaultLogin(){
+        return new Login();
+    }*/
+
     @PostMapping("/login")
-    public String login(@ModelAttribute("login") Login login){
+    public String login(@ModelAttribute("login") Login login, HttpSession session){
+        //full session management
+        //with session object
+        //session.setAttribute("","");
+        //session.setMaxInactiveInterval();
         User user=userRepository.searchByName(login.getUsername());
         if(user==null)throw new ApplicationException("User not found");
-        return "search";
+        return "forward:/userprofile";
     }
 
     /*

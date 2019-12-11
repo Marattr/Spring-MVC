@@ -18,6 +18,12 @@ public class HomeController {
         return "index";
     }
 
+    @GetMapping("/")
+    public String goHomeSlash(){
+        System.out.println("in home controller /");
+        return "index";
+    }
+
     @GetMapping("/goToSearch")
     public String goToSearch(){
         System.out.println("going to search page");
